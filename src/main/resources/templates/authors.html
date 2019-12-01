@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Spring Framework Guru</title>
+</head>
+<body>
+    <h1>Author List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Title</td>
+                <td>Publisher</td>
+                <td>Books</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="author : ${authors}">
+                <td th:text="${author.id}"></td>
+                <td th:text="${author.firstName}"></td>
+                <td th:text="${author.lastName}"></td>
+                <td>
+                    <table>
+                        <tbody>
+                            <tr th:each="book : ${author.books}">
+                                <td th:text="${book.title}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
